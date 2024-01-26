@@ -69,6 +69,7 @@ public class PlayerController : MonoBehaviour
 
     public void Jump()
     {
+
         if (!m_Character.isGrounded)
         {
             return;
@@ -76,10 +77,10 @@ public class PlayerController : MonoBehaviour
 
         m_JumpVelocity += Mathf.Sqrt(m_JumpHeight * -GRAVITY_VALUE);
 
-        if (Input.GetButton("Space"))
-        {
+        //if (Input.GetButton("Space"))
+        //{
             Debug.Log("test");
-        }
+        //}
 
         m_Character.Move(Vector3.up * m_JumpHeight * Time.deltaTime);
 
