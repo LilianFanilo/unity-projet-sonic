@@ -37,12 +37,10 @@ public class PlayerController : MonoBehaviour
 
         ApplyGravity();
     }
-
     public void ReadMoveInput(InputAction.CallbackContext context)
     {
         m_MoveVector = context.ReadValue<Vector2>();
     }
-
     private void Move()
     {
         Vector3 direction = new Vector3(m_MoveVector.x, 0f, m_MoveVector.y);
@@ -73,20 +71,6 @@ public class PlayerController : MonoBehaviour
     {
         m_Gravity = GRAVITY_VALUE * m_GravityMultiplier;
 
-
-        //if (!m_Character.isGrounded && m_JumpVelocity > 0 && Input.GetButton("Jump") == true)
-        //{
-        //    Debug.Log("long jump");
-        //    m_JumpHeight = 5f;
-        //}
-
-        //if (!m_Character.isGrounded && m_JumpVelocity > 0 && Input.GetButton("Jump") == false)
-        //{
-            //Debug.Log("short jump");
-            //m_JumpHeight /= 2;
-
-        //} 
-
         if (!m_Character.isGrounded)
         {
             return;
@@ -112,7 +96,6 @@ public class PlayerController : MonoBehaviour
 
         if (!m_Character.isGrounded && m_JumpVelocity > 0 && Input.GetButton("Jump") == false)
         {
-            //Debug.Log("short jump");
             m_Gravity *= 2;
         }
 
