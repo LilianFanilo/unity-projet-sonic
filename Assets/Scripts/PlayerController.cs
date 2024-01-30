@@ -87,6 +87,9 @@ public class PlayerController : MonoBehaviour
         //TODO: Increment velocity with gravity only when character is grounded
         m_Gravity = GRAVITY_VALUE * m_GravityMultiplier;
 
+        Debug.Log("tout va bien jusque la");
+        Debug.Log(m_Character);
+        Debug.Log(m_JumpVelocity);
 
         if (m_Character.isGrounded && m_JumpVelocity < 0)
         {
