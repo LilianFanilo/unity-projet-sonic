@@ -114,6 +114,34 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "ThirdPersonCamera",
+            "id": "d6f9bb14-1539-4e64-9926-45a6f65e8066",
+            "actions": [
+                {
+                    "name": "ResetCamera",
+                    "type": "Button",
+                    "id": "2c3b6438-ffac-445f-9c0c-ded4c1f71ea1",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "1d004300-73fa-48eb-9483-482afcd4ff51",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ResetCamera",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []

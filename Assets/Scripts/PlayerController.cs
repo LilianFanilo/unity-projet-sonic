@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Cinemachine;
 
 public class PlayerController : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float m_GravityMultiplier = 2f;
     [SerializeField] private float m_TurnSmoothTime = 0.1f;
 
+    private new CinemachineFreeLook camera;
     private CharacterController m_Character;
     private float m_JumpVelocity;
     private float m_TurnSmoothVelocity;
@@ -31,16 +33,23 @@ public class PlayerController : MonoBehaviour
     }
     #endregion
 
+    void Start()
+    {
+        camera = GetComponent<CinemachineFreeLook>();
+    }
+
     private void FixedUpdate()
     {
         Move();
 
         ApplyGravity();
     }
+
     public void ReadMoveInput(InputAction.CallbackContext context)
     {
         m_MoveVector = context.ReadValue<Vector2>();
     }
+
     private void Move()
     {
         Vector3 direction = new Vector3(m_MoveVector.x, 0f, m_MoveVector.y);
@@ -87,10 +96,6 @@ public class PlayerController : MonoBehaviour
         //TODO: Increment velocity with gravity only when character is grounded
         m_Gravity = GRAVITY_VALUE * m_GravityMultiplier;
 
-        Debug.Log("tout va bien jusque la");
-        Debug.Log(m_Character);
-        Debug.Log(m_JumpVelocity);
-
         if (m_Character.isGrounded && m_JumpVelocity < 0)
         {
             m_JumpVelocity = 0f;
@@ -105,5 +110,10 @@ public class PlayerController : MonoBehaviour
         m_JumpVelocity += m_Gravity * Time.deltaTime ;
 
         m_Character.Move(Vector3.up * m_JumpVelocity * Time.deltaTime);
+    }
+
+    public void ResetCamera()
+    {
+        camera.m_RecenterToTargetHeading.m_enabled = true;
     }
 }

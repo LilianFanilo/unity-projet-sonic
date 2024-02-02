@@ -2,3 +2,6 @@
 
 # IDE0005: La directive using n'est pas nécessaire.
 dotnet_diagnostic.IDE0005.severity = error
+
+# Default severity for all analyzer diagnostics
+dotnet_analyzer_diagnostic.severity = none
