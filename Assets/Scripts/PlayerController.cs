@@ -91,6 +91,14 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    public void Attack()
+    {
+        if (!m_Character.isGrounded)
+        {
+            print("homing attack");
+        }
+    }
+
     private void ApplyGravity()
     {
         //TODO: Increment velocity with gravity only when character is grounded

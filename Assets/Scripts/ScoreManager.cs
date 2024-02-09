@@ -22,7 +22,7 @@ public class ScoreManager
     }
     #endregion
 
-    public static readonly int MAXMIMUM_SCORE = 4;
+    public static readonly int MAXMIMUM_SCORE = 100;
 
     public event Action OnAddScore;
 
@@ -32,6 +32,15 @@ public class ScoreManager
         Score++;
         if (OnAddScore != null)
         {    
+            OnAddScore();
+        }
+    }
+
+    public void RemoveScore()
+    {
+        Score = 0;
+        if (OnAddScore != null)
+        {
             OnAddScore();
         }
     }
