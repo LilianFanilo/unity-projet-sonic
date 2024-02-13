@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float m_JumpHeight = 5f;
     [SerializeField] private float m_GravityMultiplier = 2f;
     [SerializeField] private float m_TurnSmoothTime = 0.1f;
+    [SerializeField] private float homingAttackSpeed = 10f;
+    [SerializeField] private float homingAttackRange = 5f;
 
     private new CinemachineFreeLook camera;
     private CharacterController m_Character;
@@ -19,6 +21,96 @@ public class PlayerController : MonoBehaviour
     private float m_Gravity;
 
     private Vector2 m_MoveVector;
+
+    //
+    public LayerMask enemyLayer;
+
+    private bool isHomingAttackActive = false;
+    private Transform targetEnemy;
+
+    void Update()
+    {
+        if (!m_Character.isGrounded && Input.GetKeyDown("l") && !isHomingAttackActive)
+        {
+            // Détecter l'ennemi le plus proche
+            Debug.Log("Detect enemy");
+
+            targetEnemy = DetectNearestEnemy();
+
+            Debug.Log("Enemy is detected or not ?");
+
+
+            if (targetEnemy != null)
+            {
+                Debug.Log("Enemy is detected !");
+
+                // Activer la homing attack
+                isHomingAttackActive = true;
+            }
+        }
+
+        if (isHomingAttackActive)
+        {
+            Debug.Log("Sonic attack");
+
+            // Déplacer Sonic vers l'ennemi ciblé
+            HomingAttackMove();
+
+            // Gérer la collision avec l'ennemi
+            if (Vector3.Distance(transform.position, targetEnemy.position) < 1f)
+            {
+                HandleEnemyCollision();
+                isHomingAttackActive = false; // Désactiver la homing attack après la collision
+            }
+        }
+    }
+
+    Transform DetectNearestEnemy()
+    {
+        Debug.Log("position de l'enemi");
+
+        Collider[] enemies = Physics.OverlapSphere(transform.position, homingAttackRange, enemyLayer);
+
+        if (enemies.Length > 0)
+        {
+            Debug.Log("1 ou plusieurs enemis");
+
+            Transform nearestEnemy = enemies[0].transform;
+            float closestDistance = Vector3.Distance(transform.position, nearestEnemy.position);
+
+            foreach (var enemy in enemies)
+            {
+                Debug.Log("position de chaque enemi");
+
+                float distance = Vector3.Distance(transform.position, enemy.transform.position);
+                if (distance < closestDistance)
+                {
+                    Debug.Log("enemi le plus proche");
+
+                    nearestEnemy = enemy.transform;
+                    closestDistance = distance;
+                }
+            }
+
+            return nearestEnemy;
+        }
+
+        return null;
+    }
+
+    void HomingAttackMove()
+    {
+        // Déplacer Sonic vers l'ennemi ciblé
+        transform.position = Vector3.MoveTowards(transform.position, targetEnemy.position, homingAttackSpeed * Time.deltaTime);
+    }
+
+    void HandleEnemyCollision()
+    {
+        // Logique de gestion de collision avec l'ennemi
+        Debug.Log("Homing attack collision with enemy!");
+        // Vous pouvez détruire l'ennemi, réduire sa santé, etc.
+    }
+    //
 
     #region Initialization
     private void OnEnable()
@@ -42,7 +134,10 @@ public class PlayerController : MonoBehaviour
     {
         Move();
 
-        ApplyGravity();
+        if (isHomingAttackActive == false)
+        {
+            ApplyGravity();
+        }
     }
 
     public void ReadMoveInput(InputAction.CallbackContext context)
@@ -93,10 +188,7 @@ public class PlayerController : MonoBehaviour
 
     public void Attack()
     {
-        if (!m_Character.isGrounded)
-        {
-            print("homing attack");
-        }
+  
     }
 
     private void ApplyGravity()
