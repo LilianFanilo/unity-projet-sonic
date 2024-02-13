@@ -1,50 +1,83 @@
-# Blender MTL File: 'goal ring sa2.blend'
-# Material Count: 4
+# 3ds Max Wavefront OBJ Exporter v0.94b - (c)2007 guruware
+# File Created: 04.05.2012 13:08:19
 
-newmtl cmn_metal_ms_ring_dif
-Ns 1000.000000
-Ka 0.000000 0.000000 0.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.000000
-d 1.000000
-illum 2
-map_Kd cmn_metal_ms_ring_dif.png
-refl -o 1.000000 0.000000 0.000000 cmn_metal_ms_ringsky2_ref.png
+newmtl _b2e04b4_dds
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 1.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 1.0000 1.0000 1.0000
+	Ks 1.0000 1.0000 1.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Kd Ring.png
 
-newmtl off
-Ns 96.078431
-Ka 1.000000 1.000000 1.000000
-Kd 0.640000 0.640000 0.640000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.000000
-d 1.000000
-illum 2
-map_Kd goaloff.png
+newmtl _b2e04b4_dds_1
+	Ns 10.0000
+	Ni 1.5000
+	d 0.0000
+	Tr 0.0000
+	Tf 0.0000 0.0000 0.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 1.0000 1.0000 1.0000
+	Ks 1.0000 1.0000 1.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Kd Ring.png
+	map_d Ring.png
 
-newmtl on
-Ns 96.078431
-Ka 1.000000 1.000000 1.000000
-Kd 0.640000 0.640000 0.640000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.000000
-d 1.000000
-illum 2
-map_Kd goal.png
-map_Ke  goal.png
+newmtl _5cd20d2_dds
+	Ns 10.0000
+	Ni 1.5000
+	d 0.0000
+	Tr 0.0000
+	Tf 0.0000 0.0000 0.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 1.0000 1.0000 1.0000
+	Ks 1.0000 1.0000 1.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Kd Inner_Red.png
+	map_d Inner_Red.png
 
-newmtl screen
-Ns 96.078431
-Ka 1.000000 1.000000 1.000000
-Kd 0.640000 0.640000 0.640000
-Ks 0.500000 0.500000 0.500000
-Ke 0.000000 0.000000 0.000000
-Ni 1.000000
-d 1.000000
-illum 2
-map_Kd sa2plating.png
-map_Bump  sa2plating-norm.png
-map_Ks  sa2plating-spec.png
+newmtl _5cd20d2_dds_1
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 1.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 1.0000 1.0000 1.0000
+	Ks 1.0000 1.0000 1.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Kd Inner_Red.png
+
+newmtl f4422b39_dds
+	Ns 10.0000
+	Ni 1.5000
+	d 0.0000
+	Tr 0.0000
+	Tf 0.0000 0.0000 0.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 1.0000 1.0000 1.0000
+	Ks 1.0000 1.0000 1.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Kd Ring_Rainbow.png
+	map_d Ring_Rainbow.png
+
+newmtl f4422b39_dds_1
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 1.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 1.0000 1.0000 1.0000
+	Ks 1.0000 1.0000 1.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Kd Ring_Rainbow.png
