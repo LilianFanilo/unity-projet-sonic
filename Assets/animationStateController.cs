@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class animationStateController : MonoBehaviour
 {
+    [SerializeField] private AudioClip JumpSoundClip;
+
     Animator animator;
     int isRunningHash;
     int isBoostingHash;
@@ -52,6 +54,9 @@ public class animationStateController : MonoBehaviour
 
         if (!isJumping && jumpPressed)
         {
+            // Play sound SFX
+            AudioManager.instance.PlayClip(JumpSoundClip);
+
             animator.SetBool(isJumpingHash, true);
         }
     }

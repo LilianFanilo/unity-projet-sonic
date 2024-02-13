@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CollectibleController_Final : MonoBehaviour
 {
+    [SerializeField] private AudioClip GetRingSoundClip;
+
     private const string PLAYER_TAG = "Player";
 
     private void OnTriggerEnter(Collider other)
@@ -12,7 +14,10 @@ public class CollectibleController_Final : MonoBehaviour
         {
             ScoreManager.Instance.AddScore();
 
-            gameObject.SetActive(false);
+            // Play sound SFX
+            AudioManager.instance.PlayClip(GetRingSoundClip);
+
+            Destroy(gameObject);
         }
     }
 }
