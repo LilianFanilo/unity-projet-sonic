@@ -13,6 +13,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float m_TurnSmoothTime = 0.1f;
     [SerializeField] private float homingAttackSpeed = 10f;
     [SerializeField] private float homingAttackRange = 5f;
+    [SerializeField] private AudioClip HomingAttackSoundClip;
+    [SerializeField] private AudioClip DestroyEnemySoundClip;
+
 
     private new CinemachineFreeLook camera;
     private CharacterController m_Character;
@@ -46,6 +49,7 @@ public class PlayerController : MonoBehaviour
 
                 // Activer la homing attack
                 isHomingAttackActive = true;
+                AudioManager.instance.PlayClip(HomingAttackSoundClip);
             }
         }
 
@@ -60,6 +64,7 @@ public class PlayerController : MonoBehaviour
             if (Vector3.Distance(transform.position, targetEnemy.position) < 1f)
             {
                 HandleEnemyCollision();
+                transform.position += Vector3.up * m_JumpHeight * 2 * Time.deltaTime;
                 isHomingAttackActive = false; // Désactiver la homing attack après la collision
             }
         }
@@ -108,6 +113,7 @@ public class PlayerController : MonoBehaviour
     {
         // Logique de gestion de collision avec l'ennemi
         Debug.Log("Homing attack collision with enemy!");
+        AudioManager.instance.PlayClip(DestroyEnemySoundClip);
         // Vous pouvez détruire l'ennemi, réduire sa santé, etc.
     }
     //
@@ -132,10 +138,9 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Move();
-
         if (isHomingAttackActive == false)
         {
+            Move();
             ApplyGravity();
         }
     }
