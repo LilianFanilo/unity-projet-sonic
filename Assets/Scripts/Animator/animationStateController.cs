@@ -10,8 +10,6 @@ public class animationStateController : MonoBehaviour
     int isRunningHash;
     int isBoostingHash;
     int isJumpingHash;
-
-    // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -21,7 +19,6 @@ public class animationStateController : MonoBehaviour
 
     }
 
-    // Update is called once per frame
     void Update()
     {
         bool isBoosting = animator.GetBool(isBoostingHash);
@@ -54,9 +51,7 @@ public class animationStateController : MonoBehaviour
 
         if (!isJumping && jumpPressed)
         {
-            // Play sound SFX
             AudioManager.instance.PlayClip(JumpSoundClip);
-
             animator.SetBool(isJumpingHash, true);
         }
     }
