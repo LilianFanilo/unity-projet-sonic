@@ -14,7 +14,6 @@ public class CollectibleController_Final : MonoBehaviour
         {
             ScoreManager.Instance.AddScore();
 
-            // Play sound SFX
             AudioManager.instance.PlayClip(GetRingSoundClip);
 
             Destroy(gameObject);

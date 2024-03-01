@@ -135,3 +135,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dd571c76f87f914a835b2eaeae70c91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GoalRingEndSoundClip: {fileID: 8300000, guid: 950ca64cfc30ac1459802fcca43d29c6,
+    type: 3}
