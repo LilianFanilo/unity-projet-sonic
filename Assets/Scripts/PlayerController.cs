@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float homingAttackRange = 25f;
     [SerializeField] private AudioClip HomingAttackSoundClip;
     [SerializeField] private AudioClip DestroyEnemySoundClip;
-
+    [SerializeField] private LayerMask enemyLayer;
 
     private new CinemachineFreeLook camera;
     private CharacterController m_Character;
@@ -25,8 +25,6 @@ public class PlayerController : MonoBehaviour
     private Vector2 m_MoveVector;
     private bool isHomingAttackActive = false;
     private Transform targetEnemy;
-
-    public LayerMask enemyLayer;
 
     #region Initialization
     private void OnEnable()
@@ -188,7 +186,6 @@ public class PlayerController : MonoBehaviour
     void HandleEnemyCollision()
     {
         // Logique de gestion de collision avec l'ennemi
-        Debug.Log("Homing attack collision with enemy!");
         AudioManager.instance.PlayClip(DestroyEnemySoundClip);
     }
 
