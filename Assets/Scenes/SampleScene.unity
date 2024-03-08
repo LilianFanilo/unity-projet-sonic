@@ -1626,7 +1626,7 @@ GameObject:
   m_Component:
   - component: {fileID: 245818746}
   m_Layer: 0
-  m_Name: Homing Attack Phase
+  m_Name: HomingAttackPhase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2376,7 +2376,7 @@ GameObject:
   - component: {fileID: 410087040}
   - component: {fileID: 410087042}
   m_Layer: 0
-  m_Name: Directional Light
+  m_Name: DirectionalLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5155,7 +5155,7 @@ GameObject:
   - component: {fileID: 832575519}
   - component: {fileID: 832575518}
   m_Layer: 0
-  m_Name: Global Volume
+  m_Name: GlobalVolume
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5609,7 +5609,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1123538124}
   m_Layer: 0
-  m_Name: Long Jump Phase
+  m_Name: LongJumpPhase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6303,7 +6303,7 @@ GameObject:
   - component: {fileID: 1256896195}
   - component: {fileID: 1256896196}
   m_Layer: 0
-  m_Name: Rotating Platform (1)
+  m_Name: RotatingPlatform (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6788,7 +6788,7 @@ Transform:
   m_GameObject: {fileID: 1324078859}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 6.6666665, y: 49.7552, z: 6}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8339,7 +8339,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1566920265}
   m_Layer: 0
-  m_Name: ShortJump Phase
+  m_Name: ShortJumpPhase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8381,7 +8381,7 @@ GameObject:
   - component: {fileID: 1586800108}
   - component: {fileID: 1586800110}
   m_Layer: 0
-  m_Name: Third Person
+  m_Name: ThirdPerson
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8716,6 +8716,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 1d63b4fd-e048-476c-a153-604ad18c7835
     m_ActionName: Player/Attack[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 8b979035-bea6-4daf-a669-330efc82c2a9
+    m_ActionName: Player/Sprint[/Keyboard/leftShift]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: ThirdPersonCamera
@@ -9491,7 +9495,7 @@ GameObject:
   - component: {fileID: 1773861070}
   - component: {fileID: 1773861075}
   m_Layer: 0
-  m_Name: Rotating Platform
+  m_Name: RotatingPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10372,37 +10376,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1942829935}
   m_CullTransparentMesh: 1
---- !u!1 &1964602097
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1964602098}
-  m_Layer: 0
-  m_Name: Player & Camera
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1964602098
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1964602097}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 86.272446, y: -44.854855, z: 123.66182}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2008511819
 GameObject:
   m_ObjectHideFlags: 0
@@ -11377,4 +11350,3 @@ SceneRoots:
   - {fileID: 1498499137}
   - {fileID: 118737122}
   - {fileID: 533066620}
-  - {fileID: 1964602098}

@@ -43,13 +43,10 @@ public class PlayerController : MonoBehaviour
     {
         if (!m_Character.isGrounded && Input.GetKeyDown("l") && !isHomingAttackActive)
         {
-            // Détecter l'ennemi le plus proche
             targetEnemy = DetectNearestEnemy();
 
             if (targetEnemy != null)
             {
-
-                // Activer la homing attack
                 isHomingAttackActive = true;
                 AudioManager.instance.PlayClip(HomingAttackSoundClip);
             }
@@ -57,15 +54,13 @@ public class PlayerController : MonoBehaviour
 
         if (isHomingAttackActive)
         {
-            // Déplacer Sonic vers l'ennemi ciblé
             HomingAttackMove();
 
-            // Gérer la collision avec l'ennemi
             if (Vector3.Distance(transform.position, targetEnemy.position) < 1f)
             {
                 HandleEnemyCollision();
                 transform.position += Vector3.up * m_JumpHeight * 2 * Time.deltaTime;
-                isHomingAttackActive = false; // Désactiver la homing attack après la collision
+                isHomingAttackActive = false;
             }
         }
     }
@@ -79,7 +74,6 @@ public class PlayerController : MonoBehaviour
     {
         if (isHomingAttackActive == false)
         {
-            // Active la gravité et le contrôle de mouvement de Sonic s'il n'est pas dans sa Homing Attack.
             Move();
             ApplyGravity();
         }
@@ -92,6 +86,7 @@ public class PlayerController : MonoBehaviour
 
     private void Move()
     {
+        bool boostPressed = Input.GetKey("left shift");
         Vector3 direction = new Vector3(m_MoveVector.x, 0f, m_MoveVector.y);
 
         if (direction.magnitude >= 0.1f)
@@ -107,7 +102,14 @@ public class PlayerController : MonoBehaviour
 
             Vector3 moveDirection = Quaternion.Euler(0f, angle, 0f) * Vector3. forward;
 
-            m_Character.Move(moveDirection.normalized * m_Speed * Time.deltaTime);
+            if (boostPressed)
+            {
+                m_Character.Move(moveDirection.normalized * (m_Speed * 2.5f) * Time.deltaTime);
+            }
+            else
+            {
+                m_Character.Move(moveDirection.normalized * m_Speed * Time.deltaTime);
+            }
         }
     }
 
@@ -138,7 +140,6 @@ public class PlayerController : MonoBehaviour
 
         if (!m_Character.isGrounded && m_JumpVelocity > 0 && Input.GetButton("Jump") == false)
         {
-            // La gravité de Sonic est doublé rendant le bouton Jump n'est pas maintenu.
             m_Gravity *= 2;
         }
 
@@ -149,23 +150,18 @@ public class PlayerController : MonoBehaviour
 
     Transform DetectNearestEnemy()
     {
-        // Position de l'ennemi.
         Collider[] enemies = Physics.OverlapSphere(transform.position, homingAttackRange, enemyLayer);
 
         if (enemies.Length > 0)
         {
-            // 1 ou plusieurs enemmis détectés
             Transform nearestEnemy = enemies[0].transform;
             float closestDistance = Vector3.Distance(transform.position, nearestEnemy.position);
 
             foreach (var enemy in enemies)
             {
-
-                // Position de chaque ennemis
                 float distance = Vector3.Distance(transform.position, enemy.transform.position);
                 if (distance < closestDistance)
                 {
-                    // ennemi le plus proche
                     nearestEnemy = enemy.transform;
                     closestDistance = distance;
                 }
@@ -177,15 +173,13 @@ public class PlayerController : MonoBehaviour
         return null;
     }
 
-    void HomingAttackMove()
+    public void HomingAttackMove()
     {
-        // Déplacer Sonic vers l'ennemi ciblé
         transform.position = Vector3.MoveTowards(transform.position, targetEnemy.position, homingAttackSpeed * Time.deltaTime);
     }
 
-    void HandleEnemyCollision()
+    public void HandleEnemyCollision()
     {
-        // Logique de gestion de collision avec l'ennemi
         AudioManager.instance.PlayClip(DestroyEnemySoundClip);
     }
 
