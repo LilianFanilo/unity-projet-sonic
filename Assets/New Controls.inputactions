@@ -35,7 +35,7 @@
                 {
                     "name": "Sprint",
                     "type": "Button",
-                    "id": "8b979035-bea6-4daf-a669-330efc82c2a9",
+                    "id": "1824048e-a8e3-4d79-8f92-5a522aa041fa",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -133,8 +133,19 @@
                 },
                 {
                     "name": "",
-                    "id": "e9025e8b-5661-4452-9e21-5b17583070a6",
-                    "path": "<Keyboard>/l",
+                    "id": "d9d09130-6053-47d3-8245-2fb5462e504c",
+                    "path": "<XInputController>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2fe26ae5-3223-4c0c-82d0-900e9cf45265",
+                    "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -144,8 +155,30 @@
                 },
                 {
                     "name": "",
-                    "id": "7eef7e45-b2df-4f54-a4dd-6c1e72c9750b",
+                    "id": "7297444c-b2b5-45af-b573-79bfff1f0a6e",
+                    "path": "<XInputController>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Attack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ea7a5382-f4a7-4189-9e2a-ceb12fbe748d",
                     "path": "<Keyboard>/leftShift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Sprint",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7eedc178-8c9b-4056-80a6-ebc2a829eae0",
+                    "path": "<XInputController>/leftShoulder",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float m_TurnSmoothTime = 0.05f;
     [SerializeField] private float homingAttackSpeed = 100f;
     [SerializeField] private float homingAttackRange = 25f;
+    [SerializeField] private AudioClip JumpSoundClip;
+    [SerializeField] private AudioClip BoostSoundClip;
     [SerializeField] private AudioClip HomingAttackSoundClip;
     [SerializeField] private AudioClip DestroyEnemySoundClip;
     [SerializeField] private LayerMask enemyLayer;
@@ -23,8 +25,13 @@ public class PlayerController : MonoBehaviour
     private float m_TurnSmoothVelocity;
     private float m_Gravity;
     private Vector2 m_MoveVector;
-    private bool isHomingAttackActive = false;
     private Transform targetEnemy;
+
+    public bool isMoving = false;
+    public bool isJumping = false;
+    private bool isSprinting = false;
+    private bool isAttacking = false;
+    private bool isHomingAttackActive = false;
 
     #region Initialization
     private void OnEnable()
@@ -41,7 +48,13 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (!m_Character.isGrounded && Input.GetKeyDown("l") && !isHomingAttackActive)
+        if (m_Character.isGrounded)
+        {
+            isAttacking = false;
+            isJumping = false;
+        }
+
+        if (isAttacking && !isHomingAttackActive)
         {
             targetEnemy = DetectNearestEnemy();
 
@@ -61,6 +74,7 @@ public class PlayerController : MonoBehaviour
                 HandleEnemyCollision();
                 transform.position += Vector3.up * m_JumpHeight * 2 * Time.deltaTime;
                 isHomingAttackActive = false;
+                isAttacking = false;
             }
         }
     }
@@ -105,6 +119,7 @@ public class PlayerController : MonoBehaviour
             if (boostPressed)
             {
                 m_Character.Move(moveDirection.normalized * (m_Speed * 2.5f) * Time.deltaTime);
+                //AudioManager.instance.PlayClip(BoostSoundClip);
             }
             else
             {
@@ -115,6 +130,7 @@ public class PlayerController : MonoBehaviour
 
     public void Jump()
     {
+        isJumping = true;
         m_Gravity = GRAVITY_VALUE * m_GravityMultiplier;
 
         if (!m_Character.isGrounded)
@@ -125,6 +141,8 @@ public class PlayerController : MonoBehaviour
         m_JumpVelocity += Mathf.Sqrt(m_JumpHeight * -3 * m_Gravity);
 
         m_Character.Move(Vector3.up * m_JumpHeight * Time.deltaTime);
+
+        AudioManager.instance.PlayClip(JumpSoundClip);
 
     }
 
@@ -186,5 +204,31 @@ public class PlayerController : MonoBehaviour
     public void ResetCamera()
     {
         camera.m_RecenterToTargetHeading.m_enabled = true;
+    }
+
+    private void Attack()
+    {
+        if (!m_Character.isGrounded)
+        {
+            isAttacking = true;
+        }
+        Debug.Log("Changement d'état d'attaque");
+    }
+
+    public void Sprint(InputAction.CallbackContext context)
+    {
+        bool sprintPressed = context.started || context.performed;
+        if (sprintPressed)
+        {
+            isSprinting = true;
+        } else
+        {
+            isSprinting = false;
+        }
+    }
+
+    public bool PublicIsSprinting()
+    {
+        return isSprinting; 
     }
 }

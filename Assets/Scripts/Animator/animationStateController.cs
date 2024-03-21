@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.InputSystem;
 using UnityEngine;
+using Unity.VisualScripting;
 
 public class animationStateController : MonoBehaviour
 {
@@ -27,7 +29,8 @@ public class animationStateController : MonoBehaviour
 
         bool forwadPressed = Input.GetKey("w") || Input.GetKey("a") || Input.GetKey("s") || Input.GetKey("d");
         bool boostPressed = Input.GetKey("left shift");
-        bool jumpPressed = Input.GetKey("space");
+        bool jumpPressed = Input.GetButton("Jump");
+        //bool sprintPressed = 
 
         if (!isRunning && forwadPressed)
         {
