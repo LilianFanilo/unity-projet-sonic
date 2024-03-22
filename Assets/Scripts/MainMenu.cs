@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     [SerializeField] private GameObject _mainMenuCanvas ;
+    [SerializeField] private AudioManager audioManager ;
 
     void Awake()
     {
@@ -44,5 +45,6 @@ public class MainMenu : MonoBehaviour
     public void RestartGame() 
     {
         SceneManager.LoadScene("SampleScene");
+        audioManager.audioSource.Stop();
     }
 }
