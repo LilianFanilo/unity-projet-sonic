@@ -8,6 +8,9 @@ public class GoalCollider : MonoBehaviour
 
     private const string PLAYER_TAG = "Player";
 
+    public bool Display_Win = false;
+
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == PLAYER_TAG)
@@ -15,7 +18,8 @@ public class GoalCollider : MonoBehaviour
 
             AudioManager.instance.PlayClip(GoalRingEndSoundClip);
 
-            gameObject.SetActive(false);            
+            gameObject.SetActive(false);
+            Display_Win = true;
 
         }
     }
