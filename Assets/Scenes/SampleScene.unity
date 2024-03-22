@@ -2700,7 +2700,7 @@ MonoBehaviour:
   homingAttackSpeed: 100
   homingAttackRange: 25
   JumpSoundClip: {fileID: 8300000, guid: 57bf0bb9a8fb1c94293c695e458f3c60, type: 3}
-  BoostSoundClip: {fileID: 0}
+  BoostSoundClip: {fileID: 8300000, guid: 35108e41a6d451b4caad663f56eade5a, type: 3}
   HomingAttackSoundClip: {fileID: 8300000, guid: 61ebbbd7828bd3e4b8fc19bf4798f24e,
     type: 3}
   DestroyEnemySoundClip: {fileID: 8300000, guid: 75000331d2b84b942968caeabd1734d3,
@@ -2723,6 +2723,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   threshold: 0
+  DeathSoundClip: {fileID: 8300000, guid: 01f0babf32ce32248bf2b595b3f2ccbd, type: 3}
 --- !u!4 &301308809 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8809374842763452191, guid: ab4d92a12ba91934aa7b46a648ddf670,
