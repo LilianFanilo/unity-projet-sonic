@@ -100,7 +100,7 @@ public class PlayerController : MonoBehaviour
 
     private void Move()
     {
-        bool boostPressed = Input.GetKey("left shift");
+        bool boostPressed = Input.GetKey("left shift") || Input.GetKey("e");
         Vector3 direction = new Vector3(m_MoveVector.x, 0f, m_MoveVector.y);
 
         if (direction.magnitude >= 0.1f)
