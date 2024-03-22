@@ -19,13 +19,5 @@ public class WinController : MonoBehaviour
                 WinMenu.SetActive(true);
             } 
         }
-
-        if (gameRespawn != null)
-        {
-            if (gameRespawn.playerLives == 0)
-            {
-                LoseMenu.SetActive(true);
-            }
-        }
     }
 }

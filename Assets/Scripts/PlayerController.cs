@@ -206,7 +206,7 @@ public class PlayerController : MonoBehaviour
         camera.m_RecenterToTargetHeading.m_enabled = true;
     }
 
-    private void Attack()
+    public void Attack()
     {
         if (!m_Character.isGrounded)
         {

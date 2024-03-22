@@ -694,7 +694,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4eb0a415ecee8548834172a6c0cca5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerController: {fileID: 294321374}
+  playerController: {fileID: 294321375}
 --- !u!1 &106662668
 GameObject:
   m_ObjectHideFlags: 0
@@ -1940,8 +1940,8 @@ GameObject:
   - component: {fileID: 294321370}
   - component: {fileID: 294321369}
   - component: {fileID: 294321373}
-  - component: {fileID: 294321374}
   - component: {fileID: 294321375}
+  - component: {fileID: 294321374}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -2044,7 +2044,7 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 294321374}
+      - m_Target: {fileID: 294321375}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
         m_MethodName: ReadMoveInput
         m_Mode: 0
@@ -2060,7 +2060,7 @@ MonoBehaviour:
     m_ActionName: Player/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 294321374}
+      - m_Target: {fileID: 294321375}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
         m_MethodName: Jump
         m_Mode: 1
@@ -2080,7 +2080,7 @@ MonoBehaviour:
     m_ActionName: ThirdPersonCamera/ResetCamera[/Mouse/rightButton]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 294321374}
+      - m_Target: {fileID: 294321375}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
         m_MethodName: Attack
         m_Mode: 1
@@ -2096,7 +2096,7 @@ MonoBehaviour:
     m_ActionName: Player/Attack[/Mouse/leftButton]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 294321374}
+      - m_Target: {fileID: 294321375}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
         m_MethodName: Sprint
         m_Mode: 0
@@ -2124,6 +2124,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 294321367}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff030d33aab601542a6c57478456d4a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  threshold: 0
+--- !u!114 &294321375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 294321367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 99e04dcf526cdff4792e49cfb2a8e1e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -2134,7 +2147,7 @@ MonoBehaviour:
   homingAttackSpeed: 100
   homingAttackRange: 25
   JumpSoundClip: {fileID: 8300000, guid: 57bf0bb9a8fb1c94293c695e458f3c60, type: 3}
-  BoostSoundClip: {fileID: 8300000, guid: 35108e41a6d451b4caad663f56eade5a, type: 3}
+  BoostSoundClip: {fileID: 0}
   HomingAttackSoundClip: {fileID: 8300000, guid: 61ebbbd7828bd3e4b8fc19bf4798f24e,
     type: 3}
   DestroyEnemySoundClip: {fileID: 8300000, guid: 75000331d2b84b942968caeabd1734d3,
@@ -2144,20 +2157,6 @@ MonoBehaviour:
     m_Bits: 8
   isMoving: 0
   isJumping: 0
---- !u!114 &294321375
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 294321367}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff030d33aab601542a6c57478456d4a7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  threshold: 0
-  playerLives: 3
 --- !u!1 &302825434
 GameObject:
   m_ObjectHideFlags: 0
@@ -2428,7 +2427,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330367944}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.09972084, y: 0.0016299081, z: -0.0002161097, w: 0.99501413}
+  m_LocalRotation: {x: 0.09972084, y: 0.0016299166, z: -0.00021611086, w: 0.99501413}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5276,7 +5275,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 717918031}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.1357989, y: 0.0016209779, z: -0.0002751727, w: 0.9907351}
+  m_LocalRotation: {x: 0.1357989, y: 0.0016209949, z: -0.00027517558, w: 0.9907351}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -7456,7 +7455,7 @@ MonoBehaviour:
   WinMenu: {fileID: 398651428}
   LoseMenu: {fileID: 1367563219}
   goalCollider: {fileID: 1744879552}
-  gameRespawn: {fileID: 294321375}
+  gameRespawn: {fileID: 0}
 --- !u!1001 &1194405917
 PrefabInstance:
   m_ObjectHideFlags: 0
