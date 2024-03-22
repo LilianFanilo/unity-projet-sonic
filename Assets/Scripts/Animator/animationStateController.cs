@@ -6,7 +6,7 @@ using Unity.VisualScripting;
 
 public class animationStateController : MonoBehaviour
 {
-    [SerializeField] private AudioClip JumpSoundClip;
+    [SerializeField] private PlayerController playerController;
 
     Animator animator;
     int isRunningHash;
@@ -52,9 +52,13 @@ public class animationStateController : MonoBehaviour
             animator.SetBool(isBoostingHash, false);
         }
 
-        if (!isJumping && jumpPressed)
+        if (playerController.isJumping == false)
         {
-            AudioManager.instance.PlayClip(JumpSoundClip);
+            animator.SetBool(isJumpingHash, false);
+        }
+
+        if (playerController.isJumping == true)
+        {
             animator.SetBool(isJumpingHash, true);
         }
     }

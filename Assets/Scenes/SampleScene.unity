@@ -694,7 +694,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4eb0a415ecee8548834172a6c0cca5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  JumpSoundClip: {fileID: 0}
+  playerController: {fileID: 294321374}
 --- !u!1 &106662668
 GameObject:
   m_ObjectHideFlags: 0
@@ -4542,6 +4542,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 602139916}
   m_CullTransparentMesh: 1
+--- !u!82 &614767658 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 152509028017692341, guid: 32fac63f03e383b4ea40bf025af83da5,
+    type: 3}
+  m_PrefabInstance: {fileID: 9093509759376134349}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &656325517
 GameObject:
   m_ObjectHideFlags: 0
@@ -12613,6 +12619,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 152509028017692341, guid: 32fac63f03e383b4ea40bf025af83da5,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 90da2ec9ad4db5041b19b1dc21136f89, type: 3}
+    - target: {fileID: 152509028017692341, guid: 32fac63f03e383b4ea40bf025af83da5,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1847500982631702158, guid: 32fac63f03e383b4ea40bf025af83da5,
+        type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 614767658}
     - target: {fileID: 4511044438505563106, guid: 32fac63f03e383b4ea40bf025af83da5,
         type: 3}
       propertyPath: m_LocalPosition.x
