@@ -78,20 +78,17 @@ public class PlayerController : MonoBehaviour
                 isAttacking = false;
             }
         }
-    }
 
-    void Start()
-    {
-        camera = GetComponent<CinemachineFreeLook>();
-    }
-
-    private void FixedUpdate()
-    {
         if (isHomingAttackActive == false)
         {
             Move();
             ApplyGravity();
         }
+    }
+
+    void Start()
+    {
+        camera = GetComponent<CinemachineFreeLook>();
     }
 
     public void ReadMoveInput(InputAction.CallbackContext context)
