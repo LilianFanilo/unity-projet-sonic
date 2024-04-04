@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Cinemachine;
+using System.Threading;
 
 public class PlayerController : MonoBehaviour
 {
@@ -29,9 +30,9 @@ public class PlayerController : MonoBehaviour
 
     public bool isMoving = false;
     public bool isJumping = false;
-    private bool isSprinting = false;
-    private bool isAttacking = false;
-    private bool isHomingAttackActive = false;
+    public bool isSprinting = false;
+    public bool isAttacking = false;
+    public bool isHomingAttackActive = false;
 
     #region Initialization
     private void OnEnable()

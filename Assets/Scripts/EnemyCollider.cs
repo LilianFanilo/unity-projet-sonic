@@ -4,22 +4,23 @@ using UnityEngine;
 
 public class EnemyCollider : MonoBehaviour
 {
-    PlayerController playerController;
+    [SerializeField] private PlayerController playerController;
 
     private const string PLAYER_TAG = "Player";
-
-    private void Start()
-    {
-        playerController = GameObject.FindGameObjectWithTag(PLAYER_TAG).GetComponent<PlayerController>();
-    }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == PLAYER_TAG)
         {
-            ScoreManager.Instance.RemoveScore();
+            if (playerController.isHomingAttackActive == true)
+            {
+                gameObject.SetActive(false);
+            } 
+            else
+            {
+                ScoreManager.Instance.RemoveScore();
+            }
 
-            gameObject.SetActive(false);
         }
     }
 }
