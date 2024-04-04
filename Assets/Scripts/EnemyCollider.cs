@@ -12,15 +12,10 @@ public class EnemyCollider : MonoBehaviour
     {
         if (other.gameObject.tag == PLAYER_TAG)
         {
-            if (playerController.isHomingAttackActive == true)
-            {
-                gameObject.SetActive(false);
-            } 
-            else
-            {
-                ScoreManager.Instance.RemoveScore();
-            }
+            gameObject.SetActive(false);
 
+            // Je voulais faire en sorte que le robot se détruise quand il est touché par une attaque
+            // ou qu'il fasse perdre des rings sinon mais je ne sais pas pourquoi mes booléans retournent toujours un résultat false
         }
     }
 }
