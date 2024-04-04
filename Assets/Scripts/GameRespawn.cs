@@ -5,7 +5,7 @@ using UnityEngine.PlayerLoop;
 
 public class GameRespawn : MonoBehaviour
 {
-    public float threshold;
+    [SerializeField] private float threshold;
     [SerializeField] private AudioClip DeathSoundClip;
 
     void FixedUpdate()
