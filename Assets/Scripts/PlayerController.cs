@@ -117,7 +117,6 @@ public class PlayerController : MonoBehaviour
             if (boostPressed)
             {
                 m_Character.Move(moveDirection.normalized * (m_Speed * 2.5f) * Time.deltaTime);
-                //AudioManager.instance.PlayClip(BoostSoundClip);
             }
             else
             {
@@ -210,7 +209,6 @@ public class PlayerController : MonoBehaviour
         {
             isAttacking = true;
         }
-        Debug.Log("Changement d'état d'attaque");
     }
 
     public void Sprint(InputAction.CallbackContext context)

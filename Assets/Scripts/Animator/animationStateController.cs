@@ -30,7 +30,6 @@ public class animationStateController : MonoBehaviour
         bool forwadPressed = Input.GetKey("w") || Input.GetKey("a") || Input.GetKey("s") || Input.GetKey("d");
         bool boostPressed = Input.GetKey("left shift") || Input.GetKey("e");
         bool jumpPressed = Input.GetButton("Jump");
-        //bool sprintPressed = 
 
         if (!isRunning && forwadPressed)
         {
